@@ -1,0 +1,8 @@
+SESSION_DB=/dev/shm/compositus-sessions.tct
+DB_USER=compositus
+DB_PASS=password
+DB_NAME=compositus
+MAIL_CMD=/usr/sbin/sendmail -t
+MAIL_FROM=compositus-admin@opentchlabs.co.uk
+MAIL_REPLY_TO=noreply@opentechlabs.co.uk
+MAIL_SUBJECT=Compositus Account Activation
