@@ -41,8 +41,8 @@
 #define SQL_MAX		8192
 
 #define TENANT_MAX	64
-#define SID_MAX		64
-#define CSRF_MAX	64
+#define SID_LEN		64
+#define CSRF_LEN	64
 #define IP_MAX		39
 #define SHA256_LEN	64
 
@@ -123,8 +123,8 @@ struct user_session {
 	time_t last_seen;
 	char origin_ip[IP_MAX + 1];
 	char *client_id;
-	char session_id[SID_MAX + 1];
-	char csrf_token[CSRF_MAX + 1];
+	char session_id[SID_LEN + 1];
+	char csrf_token[CSRF_LEN + 1];
 	bool restrict_ip;
 	char *user_hdr;
 } user_session;
