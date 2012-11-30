@@ -44,6 +44,7 @@
 #define SID_MAX		64
 #define CSRF_MAX	64
 #define IP_MAX		39
+#define SHA256_LEN	64
 
 #define SHA256		 5
 #define SHA512		10
@@ -151,6 +152,7 @@ struct file_info {
 	char *temp_file_name;
 	char *name;
 	char *mime_type;
+	char sha256[SHA256_LEN + 1];
 } file_info;
 struct file_info file_info;
 
