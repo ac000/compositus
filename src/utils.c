@@ -173,6 +173,7 @@ void free_u_files(void)
 		file_info = g_list_nth_data(u_files, i);
 		free(file_info->name);
 		free(file_info->mime_type);
+		unlink(file_info->temp_file_name);
 	}
 	g_list_free(u_files);
 }
@@ -379,7 +380,7 @@ static void process_mime_part(GMimeObject *part, gpointer user_data)
 				"Content-Disposition"));
 
 	if (g_mime_disposition_get_parameter(disposition, "filename")) {
-		char temp_name[] = "/tmp/u_files/pgv-XXXXXX";
+		char temp_name[] = "/tmp/compositus/pgv-XXXXXX";
 		struct file_info *file_info;
 		int fd;
 		mode_t smask;
