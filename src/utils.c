@@ -450,6 +450,7 @@ static void process_mime_part(GMimeObject *part, gpointer user_data)
 		g_mime_stream_flush(stream);
 		close(fd);
 
+		hash_file(temp_name, file_info->sha256, SHA256);
 		u_files = g_list_append(u_files, file_info);
 	} else {
 		char *buf;
