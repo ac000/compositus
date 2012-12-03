@@ -118,6 +118,45 @@ out:
 }
 
 /*
+ * Produces a SHA-256 hash of the specified file.
+ *
+ * The type parameter should be specified as SHA256, though
+ * it's currently unused.
+ */
+int hash_file(const char *file, char *hash, int type)
+{
+	int fd;
+	int i;
+	int hbs;
+	ssize_t bytes_read;
+	char buf[BUF_SIZE];
+	char ht[3];
+	unsigned char *xhash;
+	MHASH td;
+
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return fd;
+
+	td = mhash_init(MHASH_SHA256);
+	do {
+		bytes_read = read(fd, &buf, sizeof(buf));
+		mhash(td, &buf, bytes_read);
+	} while (bytes_read > 0);
+	close(fd);
+	xhash = mhash_end(td);
+
+	hbs = mhash_get_block_size(MHASH_SHA256);
+	for (i = 0; i < hbs; i++) {
+		sprintf(ht, "%.2x", xhash[i]);
+		strncat(hash, ht, 2);
+	}
+	free(xhash);
+
+	return 0;
+}
+
+/*
  * Given a size in bytes, round up to the next multiple of BUF_SIZE
  *
  * e.g With a BUF_SIZE of 4096, 6363 would return 8192
