@@ -394,6 +394,7 @@ static void process_mime_part(GMimeObject *part, gpointer user_data)
 		umask(smask);
 
 		file_info = malloc(sizeof(struct file_info));
+		memset(file_info, 0, sizeof(struct file_info));
 		snprintf(file_info->orig_file_name,
 				sizeof(file_info->orig_file_name), "%s",
 				g_mime_disposition_get_parameter(
