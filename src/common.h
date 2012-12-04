@@ -29,7 +29,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <time.h>
-#include <netdb.h>
 
 #include <glib.h>
 
