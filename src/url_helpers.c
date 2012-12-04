@@ -469,7 +469,7 @@ void display_last_login(TMPL_varlist *varlist)
  */
 void create_session(unsigned long long sid)
 {
-	char *session_id;
+	char session_id[SID_LEN + 1];
 	char restrict_ip[2] = "0\0";
 	char pkbuf[256];
 	char timestamp[21];
@@ -488,7 +488,7 @@ void create_session(unsigned long long sid)
 	db_row = get_dbrow(res);
 
 	get_tenant(env_vars.host, tenant);
-	session_id = create_session_id();
+	generate_hash(session_id, SHA256);
 
 	if (strcmp(get_var(qvars, "restrict_ip"), "true") == 0) {
 		d_fprintf(debug_log, "Restricting session to origin ip "
@@ -525,7 +525,6 @@ void create_session(unsigned long long sid)
 	mysql_free_result(res);
 	free_vars(db_row);
 	free(username);
-	free(session_id);
 }
 
 /*
