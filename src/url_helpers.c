@@ -178,7 +178,7 @@ void set_user_session(void)
 	int rsize;
 	int primary_key_size;
 	char pkbuf[256];
-	char session_id[65];
+	char session_id[SID_LEN + 1];
 	char login_at[21];
 	char last_seen[21];
 	char uid[11];
