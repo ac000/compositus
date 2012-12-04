@@ -10,7 +10,6 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
-#include <netdb.h>
 
 #include "common.h"
 #include "compositus_config.h"
