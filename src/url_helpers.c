@@ -75,7 +75,7 @@ char *username_to_name(const char *username)
  */
 bool is_logged_in(void)
 {
-	char session_id[65];
+	char session_id[SID_LEN + 1];
 	TCTDB *tdb;
 	TDBQRY *qry;
 	TCLIST *res;
