@@ -41,8 +41,8 @@
 #define ENTROPY_SIZE	   8
 
 #define TENANT_MAX	64
-#define SID_LEN		64
-#define CSRF_LEN	64
+#define SID_LEN		40
+#define CSRF_LEN	40
 #define IP_MAX		39
 #define SHA1_LEN	40
 #define SHA256_LEN	64
