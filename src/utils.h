@@ -17,6 +17,7 @@
 #define IS_LAST_PAGE(page, nr_pages)	(((page) == (nr_pages)) ? 1 : 0)
 
 char *get_tenant(const char *host, char *tenant);
+char *username_to_name(const char *username);
 char *generate_hash(char *hash, int type);
 int hash_file(const char *file, char *hash, int type);
 void free_avars(void);
@@ -42,5 +43,7 @@ TMPL_varlist *add_html_var(TMPL_varlist *varlist, const char *name,
 			   const char *value);
 void de_xss(const char *value, FILE *out);
 char *xss_safe_string(const char *string);
+void send_template(const char *template, TMPL_varlist *varlist,
+		   TMPL_fmtlist *fmtlist);
 
 #endif /* _UTILS_H_ */
