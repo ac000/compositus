@@ -1,5 +1,5 @@
 /*
- * url_helpers.h
+ * csrf.h - CSRF mitigation functions
  *
  * Copyright (C) 2012		OpenTech Labs
  *				Andrew Clayton <andrew@opentechlabs.co.uk>
@@ -8,7 +8,10 @@
  * See AGPL-3.0.txt
  */
 
-#ifndef _URL_HELPERS_H_
-#define _URL_HELPERS_H_
+#ifndef _CSRF_H_
+#define _CSRF_H_
 
-#endif /* _URL_HELPERS_H_ */
+void add_csrf_token(TMPL_varlist *varlist);
+bool valid_csrf_token(void);
+
+#endif /* _CSRF_H_ */
