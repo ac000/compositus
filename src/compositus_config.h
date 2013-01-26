@@ -2,7 +2,7 @@
  * compositus_config.h
  *
  * Copyright (C) 2012		OpenTech Labs
- *				Andrew Clayton <andrew@popentechlabs.co.uk>
+ *				Andrew Clayton <andrew@opentechlabs.co.uk>
  *
  * Released under the GNU Affero General Public License version 3
  * See AGPL-3.0.txt
